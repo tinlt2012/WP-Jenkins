@@ -1,0 +1,18 @@
+---
+- hosts: docker
+  become: yes
+  vars:
+    image_tag: "{{ lookup('env', 'image_tag') }}"
+  tasks:
+    - name: Deploy WordPress container
+      docker_container:
+        name: wordpress
+        image: "https://hub.docker.com/tinlt/wordpress:{{ image_tag }}"
+        state: started
+        ports:
+          - "8080:80"
+        env:
+          WORDPRESS_DB_HOST: "db_host" # Thay thế bằng hostname của database
+          WORDPRESS_DB_USER: "db_user" # Thay thế bằng username của database
+          WORDPRESS_DB_PASSWORD: "db_password" # Thay thế bằng password của database
+          WORDPRESS_DB_NAME: "db_name" # Thay thế bằng tên databasee
