@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // Thay thế 'your_dockerhub_username' bằng tên người dùng Docker Hub của bạn
-                    def dockerImage = docker.build("tinlt/wordpress:${env.BUILD_ID}")
+                    def dockerImage = docker.build("lttin2012@gmail.com/wordpress:${env.BUILD_ID}")
                 }
             }
         }
