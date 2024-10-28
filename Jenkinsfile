@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('af7c57fe-35ae-4d2c-ba41-83a099893b6d') // Đảm bảo ID này đúng
+        DOCKER_HUB_CREDENTIALS = credentials('dockerhub-credentials-id') // Đảm bảo ID này đúng
     }
 
     stages {
